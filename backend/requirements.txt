@@ -1,0 +1,56 @@
+# Core Framework
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+gunicorn==23.0.0
+
+# Database
+sqlalchemy[asyncio]==2.0.36
+asyncpg==0.30.0
+alembic==1.14.0
+
+# Cache / Broker
+redis[asyncio]==5.2.1
+celery[redis]==5.4.0
+
+# Auth & Security
+argon2-cffi==23.1.0
+python-jose[cryptography]==3.3.0
+cryptography==44.0.0
+passlib==1.7.4
+
+# HTTP & Validation
+pydantic==2.10.3
+pydantic-settings==2.7.0
+python-multipart==0.0.20
+aiohttp==3.11.11
+email-validator==2.2.0
+
+# Storage
+minio==7.2.12
+aiofiles==24.1.0
+python-magic==0.4.27
+Pillow==11.1.0
+
+# WebSockets
+websockets==14.1
+
+# Observability
+structlog==24.4.0
+prometheus-fastapi-instrumentator==7.0.0
+
+# Background tasks
+celery==5.4.0
+flower==2.0.1
+
+# Utils
+python-slugify==8.0.4
+pytz==2024.2
+httpx==0.28.1
+
+# Testing
+pytest==8.3.4
+pytest-asyncio==0.25.0
+pytest-cov==6.0.0
+httpx==0.28.1
+factory-boy==3.3.1
+faker==33.1.0

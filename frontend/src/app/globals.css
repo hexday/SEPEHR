@@ -1,0 +1,229 @@
+/* SEPEHR — Global Styles */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Reset ──────────────────────────────────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0B0D10;
+    color: #FFFFFF;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  /* Prevent bounce scroll on iOS */
+  body {
+    overscroll-behavior: none;
+  }
+
+  /* RTL text direction for Persian */
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(79, 140, 255, 0.3);
+    color: #ffffff;
+  }
+
+  /* Focus outline */
+  :focus-visible {
+    outline: 2px solid rgba(79, 140, 255, 0.6);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Input base */
+  input,
+  textarea {
+    background: transparent;
+    color: inherit;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(185, 192, 204, 0.4);
+  }
+}
+
+/* ── Component Utilities ─────────────────────────────────────────────────── */
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-bg-card border border-border rounded-2xl;
+  }
+
+  .glass-surface {
+    @apply bg-bg-surface border border-border rounded-xl;
+  }
+
+  /* Safe area padding for mobile */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Bottom nav height with safe area */
+  .bottom-nav-height {
+    height: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Content padding to avoid bottom nav */
+  .content-pb {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Alert severity colors */
+  .alert-info {
+    @apply bg-accent-dim border-accent/30 text-accent;
+  }
+
+  .alert-warning {
+    @apply bg-warning-muted border-warning/30 text-warning;
+  }
+
+  .alert-danger {
+    @apply bg-danger-muted border-danger/30 text-danger;
+  }
+
+  .alert-critical {
+    @apply bg-danger-muted border-danger/50 text-danger shadow-danger-glow;
+  }
+
+  /* Message bubble */
+  .msg-bubble-out {
+    @apply bg-accent text-white rounded-2xl rounded-br-md px-4 py-2.5 max-w-[80%] ml-auto;
+  }
+
+  .msg-bubble-in {
+    @apply bg-bg-card text-primary rounded-2xl rounded-bl-md px-4 py-2.5 max-w-[80%] mr-auto;
+  }
+
+  /* Fade truncate */
+  .text-fade {
+    @apply overflow-hidden;
+    -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  }
+}
+
+/* ── Animations ──────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .animate-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .slide-in-bottom {
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 25%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0.03) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+}
+
+/* ── Leaflet Map Override ─────────────────────────────────────────────────── */
+
+.leaflet-container {
+  background: #151922 !important;
+  font-family: inherit;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #1C2330 !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+  background: #1C2330 !important;
+  color: #B9C0CC !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 16px !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #222A38 !important;
+  color: #FFFFFF !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #1C2330 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: #1C2330 !important;
+}
+
+/* ── PWA Install Banner ───────────────────────────────────────────────────── */
+
+#pwa-install-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  padding: 16px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  background: #1C2330;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
