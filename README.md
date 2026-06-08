@@ -30,7 +30,7 @@ SEPEHR is a secure, offline-capable communication and information platform desig
 ## Quick Start
 
 ```bash
-git clone https://github.com/your-org/sepehr.git
+git clone https://github.com/hexday/SEPEHR.git
 cd sepehr
 sudo ./scripts/setup.sh
 ```
